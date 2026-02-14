@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body {
+      text-align: center;
+      background: linear-gradient(to right, pink, lightcoral);
+      font-family: Arial;
+      color: white;
+      overflow: hidden;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 40px;
+    }
+    p {
+      font-size: 20px;
+    }
+    img {
+      width: 220px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #yes {
+      background: green;
+      color: white;
+    }
+    #no {
+      background: red;
+      color: white;
+    }
+    .heart {
+      position: fixed;
+      color: red;
+      font-size: 20px;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      0% { top: -10px; }
+      100% { top: 100vh; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hey ❤️</h1>
+<p>I have something to ask you...</p>
+
+<img src="photo.jpg">
+
+<h2>Will you be my Valentine? 💕</h2>
+
+<button id="yes" onclick="yesClicked()">Yes 😍</button>
+<button id="no" onclick="noClicked()">No 😜</button>
+
+<script>
+function yesClicked() {
+  document.body.innerHTML = `
+    <h1>Yayyy 😍❤️</h1>
+    <img src="photo.jpg">
+    <p>
+      "Un kooda irukum pothu dhaan enaku life full ah complete ah feel aaguthu 💖<br>
+      Ne dhaan en happiness my chelllameee😘
+      \n luv u lot thanganmeeeeee😘😘😘😘😘😘"
+    </p>
+  `;
+  startHearts();
+}
+
+function noClicked() {
+  alert("Yen da 'No' ah press panra 😒💔\nOlunga yes select unaku vera option'eh kidaiyathu 😏");
+}
+
+function startHearts() {
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 3000);
+  }, 200);
+}
+</script>
+
+</body>
+</html>
